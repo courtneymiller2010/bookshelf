@@ -26,6 +26,7 @@ gem 'therubyracer', platform: :ruby
 gem 'font-awesome-sass'
 gem 'draper'
 gem 's3_direct_upload'
+gem 'coveralls', require: false
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
