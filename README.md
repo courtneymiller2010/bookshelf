@@ -31,20 +31,22 @@ Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.
 Getting Started
 ---------------
 
-- rbenv install 2.2.4
-- rbenv local 2.2.4
-- brew install mysql
-- brew services start mysql
-- gem install bundler
-- bundle install
-- rake db:setup
-- rails s
+- ```rbenv install 2.2.4```
+- ```rbenv local 2.2.4```
+- ```brew install mysql```
+- ```brew services start mysql```
+- ```gem install bundler```
+- ```bundle install```
+- ```rake db:setup```
+- ```rails s```
 
 Testing
 ---------------
 
-- rake db:test:prepare RAILS_ENV=test
-- rspec spec
+- ```rake db:test:prepare RAILS_ENV=test```
+
+
+- ```rspec spec``` OR ```bundle exec guard```
 
 
 Documentation and Support

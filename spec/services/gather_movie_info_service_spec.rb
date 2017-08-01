@@ -43,8 +43,9 @@ RSpec.describe GatherMovieInfoService do
     end
   end
 
+  # omdbapi has gone private, so these methods no longer work
   describe '#gather' do
-    it 'populates the movie' do
+    it 'populates the movie', :pending do
       expect(service.gather).to eq(true)
       
       expect(movie.storyline).to  eq(sample_data_hash['Plot'])
