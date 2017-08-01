@@ -5,6 +5,8 @@ Bookshelf
 
 [![Build Status](https://travis-ci.org/courtneymiller2010/bookshelf.svg?branch=master)](https://travis-ci.org/courtneymiller2010/bookshelf)
 
+[![Coverage Status](https://coveralls.io/repos/github/courtneymiller2010/bookshelf/badge.svg?branch=master)](https://coveralls.io/github/courtneymiller2010/bookshelf?branch=master)
+
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
 provided by the [RailsApps Project](http://railsapps.github.io/).
 
