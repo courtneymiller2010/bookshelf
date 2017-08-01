@@ -1,0 +1,29 @@
+= render 'shared/breadcrumb', links: [{'Bookcases' => bookcases_path}, {@bookcase.name => :active}]
+
+%legend View Bookcase
+.row#bookcase_show
+  .col-md-4
+    %p
+      %strong Name:
+      %span= @bookcase.name
+    %p
+      %strong Description:
+      %span= @bookcase.description
+    %p
+      %strong Shelves count:
+      %span= @bookcase.shelves_count
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        .panel-title
+          Picture
+          = link_with_icon 'icon-plus', 'Add Picture', '#', class: 'btn btn-default pull-right', id: 'add_picture'
+      .panel-body
+        - if @bookcase.picture_url
+          %img{src: @bookcase.picture_url}
+        - else
+          No picture uploaded
+  .col-md-4
+    .hide.upload_form
+      = s3_uploader_form(callback_url: upload_picture_bookcase_path(@bookcase), callback_method: 'PUT', callback_param: 'bookcase[picture_url]', id: 's3-uploader') do
+        = file_field_tag :file, multiple: false

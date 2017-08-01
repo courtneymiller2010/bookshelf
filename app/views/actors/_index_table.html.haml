@@ -1,0 +1,22 @@
+%table.table.table-striped.table-bordered.table-hover.table-condensed
+  %thead
+    %tr
+      %th Name
+      %th Birth date
+      %th Birthplace
+      %th
+  %tbody
+    - if @actors.length > 0
+      - @actors.each do |actor|
+        %tr
+          %td
+            = link_with_icon 'pencil', '', edit_actor_path(actor), class: 'pull-right'
+            = link_to actor.name, actor_path(actor), class: 'pull-left'
+          %td= actor.birth_date
+          %td= actor.birthplace
+          %td.text-center=link_with_icon 'trash-o', '', actor, method: :delete, data: { confirm: 'Are you sure?' }
+    - else
+      %td{colspan: 4}
+        There are no Actors.
+
+= will_paginate @actors, renderer: BootstrapPagination::Rails

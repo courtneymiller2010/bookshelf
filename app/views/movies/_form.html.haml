@@ -1,0 +1,11 @@
+= simple_form_for(@movie, html: { class: 'form-horizontal' }) do |f|
+  .fieldset
+    = f.error_notification
+  
+    .form-inputs
+      = f.input :name #, as: :select, collection: [@movie], include_blank: false, value: @movie.name
+      = f.association :bookcase
+  
+    .form-actions
+      = f.button :submit, class: 'btn btn-success'
+      = link_to 'Cancel', movies_path, class: 'btn btn-default'

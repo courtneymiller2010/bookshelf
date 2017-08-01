@@ -1,0 +1,11 @@
+- parent_object ||= nil
+
+= simple_form_for(Comment.new, remote: true, html: { class: 'hide form-horizontal' }) do |f|
+  %fieldset
+    %b Add a Comment
+    = f.hidden_field :commentable_id, value: parent_object.id
+    = f.hidden_field :commentable_type, value: parent_object.class.name
+    = f.text_area :comment, class: 'col-md-12 text form-control'
+    .pull-right
+      = f.button :submit, class: 'btn btn-primary', value: 'Post Comment', data: {'disable-with' => 'Posting...'}
+      = link_to 'Cancel', '#', class: 'btn btn-default cancel_comment'

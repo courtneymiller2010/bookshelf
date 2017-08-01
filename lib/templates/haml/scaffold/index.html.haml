@@ -1,0 +1,31 @@
+%h1
+  <%= plural_table_name.titleize %>
+  = link_with_icon 'plus-circle', 'New <%= singular_table_name.titleize %>', new_<%= singular_table_name %>_path, class: 'btn btn-default btn-small'
+
+.index_table
+  %table.table.table-striped.table-bordered.table-hover.table-condensed
+    %thead
+      %tr
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+        %th <%= attribute.human_name %>
+<% end -%>
+        %th
+    %tbody
+      - if @<%= plural_table_name %>.length > 0
+        - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+          %tr
+<% attributes.reject(&:password_digest?).each_with_index do |attribute, index| -%>
+<% if index == 0 -%>
+            %td
+              = link_with_icon 'pencil', '', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'pull-right'
+              = link_to <%= singular_table_name %>.<%= attribute.name %>, <%= singular_table_name %>_path(<%= singular_table_name %>), class: 'pull-left'
+<% else -%>
+            %td= <%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+<% end -%>
+            %td.text-center=link_with_icon 'trash-o', '', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' }
+      - else
+        %td{colspan: <%= attributes.reject(&:password_digest?).length + 1 %>}
+          There are no <%= plural_table_name.titleize %>.
+
+  = will_paginate @<%= plural_table_name %>, renderer: BootstrapPagination::Rails

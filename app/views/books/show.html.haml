@@ -1,0 +1,23 @@
+= render 'shared/breadcrumb', links: [{'Books' => books_path}, {@book.name => :active}]
+
+%legend View Book
+
+.row
+  .col-md-12
+    %p
+      %strong Name:
+      %span= @book.name
+    %p
+      %strong Bookcase:
+      %span= @book.bookcase.name
+    %p
+      %strong Isbn:
+      %span= @book.isbn
+    %p
+      %strong Published:
+      %span= @book.published
+    %p
+      %strong Pages count:
+      %span= @book.pages_count
+
+= render 'comments/comment_section', parent_object: @book

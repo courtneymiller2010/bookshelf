@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-lg-12.text-center
+      %h1 Bookshelf
+      %p.lead
+        A web application to track movies and books in your bookshelves
+  - @bookcases.in_groups_of(4, false).each do |bookcase_group|
+    .row
+      - bookcase_group.each do |bookcase|
+        .col-md-3
+          .panel.panel-info
+            .panel-heading= bookcase.name
+            .panel-body
+              - empty = (bookcase.movies.length + bookcase.books.length) == 0
+              - if empty
+                %span Bookcase is empty.
+              - else
+                - if bookcase.movies.length > 0
+                  %span Movies
+                  %ul
+                    - bookcase.movies.each do |movie|
+                      %li= link_to movie.name, movie_path(movie)
+                - if bookcase.books.length > 0
+                  %span Books
+                  %ul
+                    - bookcase.books.each do |book|
+                      %li= link_to book.name, book_path(book)

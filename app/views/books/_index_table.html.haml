@@ -1,0 +1,27 @@
+%table.table.table-striped.table-bordered.table-hover.table-condensed
+  %thead
+    %tr
+      %th Name
+      %th Isbn
+      %th Published
+      %th Pages count
+      %th Bookcase
+      %th
+  %tbody
+    - if @books.length > 0
+      - @books.each do |book|
+        - book = book.decorate
+        %tr
+          %td
+            = link_with_icon 'pencil', '', edit_book_path(book), class: 'pull-right'
+            = link_to book.name, book_path(book), class: 'pull-left'
+          %td= book.isbn
+          %td= book.published
+          %td= book.pages_count
+          %td= book.bookcase.name
+          %td.text-center=link_with_icon 'trash-o', '', book, method: :delete, data: { confirm: 'Are you sure?' }
+    - else
+      %td{colspan: 6}
+        There are no Books.
+
+= will_paginate @books, renderer: BootstrapPagination::Rails

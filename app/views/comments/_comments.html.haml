@@ -1,0 +1,15 @@
+- comments = parent_object.comments
+
+%b.pull-left= pluralize(comments.length, "Comment")
+%a#add-new-comment.pull-right Add a Comment
+%table.table.tabled-condensed
+  %thead
+    %tr
+      %th
+      %th
+  - comments.each do |comment|
+    %tr
+      %td
+        %abbr{title: comment.created_at}
+          #{time_ago_in_words(comment.created_at)} ago
+      %td= comment.comment

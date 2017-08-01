@@ -1,0 +1,4 @@
+= render 'shared/breadcrumb', links: [{'<%= plural_table_name.titleize %>' => <%= index_helper %>_path}, {@<%= singular_table_name %>.<%= attributes.first.name -%> => :active}]
+
+%legend Edit <%= singular_table_name.titleize %>
+= render 'form'

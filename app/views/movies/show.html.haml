@@ -1,0 +1,45 @@
+= render 'shared/breadcrumb', links: [{'Movies' => movies_path}, {@movie.name => :active}]
+
+%legend View Movie
+
+.row
+  .col-md-12
+    %p
+      %strong Title:
+      %span= @movie.name
+    %p
+      %strong Bookcase:
+      %span= @movie.bookcase.name
+    %p
+      %strong Storyline:
+      %span= @movie.storyline
+    %p
+      %strong Rated:
+      %span= @movie.rated
+    %p
+      %strong Released:
+      %span= @movie.released
+    %p
+      %strong Runtime:
+      %span= @movie.runtime
+    %p
+      %strong Genre:
+      %span= @movie.genre
+    %p
+      %strong Director:
+      %span= @movie.director
+    %p
+      %strong Writer:
+      %span= @movie.writer
+    %p
+      %strong Actors:
+      %span= display_actor_links(@movie) 
+    %p
+      %strong Language:
+      %span= @movie.language
+    %p
+      %strong Country:
+      %span= @movie.country
+    
+
+= render 'comments/comment_section', parent_object: @movie

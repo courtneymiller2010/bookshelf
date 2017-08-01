@@ -1,0 +1,15 @@
+= render 'shared/breadcrumb', links: [{'Actors' => actors_path}, {@actor.name => :active}]
+
+%legend View Actor
+%p
+  %strong Name:
+  %span= @actor.name
+%p
+  %strong Birth date:
+  %span= @actor.birth_date
+%p
+  %strong Birthplace:
+  %span= @actor.birthplace
+%p
+  %strong Movies:
+  %span= display_movie_links(@actor)

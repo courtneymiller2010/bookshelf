@@ -1,0 +1,11 @@
+-links ||= [] # [ {'display text' => path}, {'another link' => :active} ]
+
+%ul.breadcrumb
+  - links.each do |display_with_path|
+    - display_with_path.each do |display, path|
+      - css_class, active = path.to_s == 'active' || path.nil? ? ['active', true] : ['', false]
+      %li{class: css_class}
+        - if active
+          = display
+        - else
+          = link_to display, path

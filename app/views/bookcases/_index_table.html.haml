@@ -1,0 +1,22 @@
+%table.table.table-striped.table-bordered.table-hover.table-condensed
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Shelves count
+      %th
+  %tbody
+    - if @bookcases.length > 0
+      - @bookcases.each do |bookcase|
+        %tr
+          %td
+            = link_with_icon 'pencil', '', edit_bookcase_path(bookcase), class: 'pull-right'
+            = link_to bookcase.name, bookcase_path(bookcase), class: 'pull-left'
+          %td= bookcase.description
+          %td= bookcase.shelves_count
+          %td.text-center=link_with_icon 'trash-o', '', bookcase, method: :delete, data: { confirm: 'Are you sure?' }
+    - else
+      %td{colspan: 4}
+        There are no Bookcases.
+
+= will_paginate @bookcases, renderer: BootstrapPagination::Rails

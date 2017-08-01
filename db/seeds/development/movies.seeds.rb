@@ -1,0 +1,15 @@
+Movie.seed_once(:name,
+  { name: 'Movie A', storyline: "Here's a storyline" },
+  { name: 'Movie B', storyline: "Here's a storyline" },
+  { name: 'Movie C', storyline: "Here's a storyline" },
+  { name: 'Movie D', storyline: "Here's a storyline" },
+  { name: 'Movie E', storyline: "Here's a storyline" },
+  { name: 'Movie F', storyline: "Here's a storyline" },
+  { name: 'Movie G', storyline: "Here's a storyline" },
+  { name: 'Movie H', storyline: "Here's a storyline" },
+  { name: 'Movie I', storyline: "Here's a storyline" },
+  { name: 'Movie J', storyline: "Here's a storyline" },
+  { name: 'Movie K', storyline: "Here's a storyline" },
+  { name: 'Movie L', storyline: "Here's a storyline" },
+  { name: 'Movie M', storyline: "Here's a storyline" }
+)

@@ -1,0 +1,10 @@
+:plain
+  var comments_list_partial  = "#{escape_javascript(render 'comments/comments', parent_object: @comment.commentable)}";
+  $('.comments').html(comments_list_partial);
+  $('.add_new_comment form').addClass('hide');
+- if @comment.present?
+  - if @comment.persisted?
+    :plain
+      $('.add_new_comment form#new_comment #comment_comment').val('');
+  :plain
+    $('.add_new_comment form#new_comment #comment_comment').focus();

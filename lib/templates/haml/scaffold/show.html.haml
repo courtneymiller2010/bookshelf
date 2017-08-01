@@ -1,0 +1,8 @@
+= render 'shared/breadcrumb', links: [{'<%= plural_table_name.titleize %>' => <%= index_helper %>_path}, {@<%= singular_table_name %>.<%= attributes.first.name -%> => :active}]
+
+%legend View <%= singular_table_name.titleize %>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+%p
+  %strong <%= attribute.human_name %>:
+  %span= @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>

@@ -1,0 +1,7 @@
+%hr
+
+.row
+  .col-md-6.comments
+    = render 'comments/comments', parent_object: parent_object
+  .col-md-6.add_new_comment
+    =render 'comments/new_comment', parent_object: parent_object
